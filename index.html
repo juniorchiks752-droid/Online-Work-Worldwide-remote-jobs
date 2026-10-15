@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Explore remote jobs and work-from-home opportunities worldwide.">
+<title>WorldRemoteJobs | Remote Careers Worldwide</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --blue: #155eef;
+  --dark: #101828;
+  --muted: #667085;
+  --light: #f5f8ff;
+  --border: #e4e7ec;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: var(--dark);
+  line-height: 1.6;
+  background: #fff;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 7%;
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--blue);
+}
+
+.logo span {
+  color: var(--dark);
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--dark);
+  font-weight: bold;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: var(--blue);
+}
+
+.hero {
+  padding: 75px 7%;
+  text-align: center;
+  background: linear-gradient(135deg, #eaf1ff, #f9faff);
+}
+
+.badge {
+  display: inline-block;
+  padding: 7px 15px;
+  background: #d1fadf;
+  color: #067647;
+  border-radius: 30px;
+  font-size: 13px;
+  margin-bottom: 18px;
+  font-weight: bold;
+}
+
+h1 {
+  max-width: 850px;
+  margin: auto;
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.15;
+}
+
+h1 span {
+  color: var(--blue);
+}
+
+.hero p {
+  max-width: 650px;
+  margin: 20px auto;
+  color: var(--muted);
+}
+
+.search {
+  display: flex;
+  gap: 10px;
+  max-width: 850px;
+  margin: 28px auto 0;
+  padding: 10px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px #10182812;
+}
+
+input, select {
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: white;
+}
+
+input {
+  flex: 1;
+}
+
+button, .apply {
+  padding: 12px 18px;
+  background: var(--blue);
+  color: white;
+  border: none;
+  border-radius: 7px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+button:hover, .apply:hover {
+  background: #0040c1;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 35px 7%;
+  text-align: center;
+}
+
+.stats strong {
+  display: block;
+  color: var(--blue);
+  font-size: 23px;
+}
+
+.stats span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+section.content {
+  padding: 55px 7%;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.heading h2 {
+  font-size: 30px;
+}
+
+.heading p {
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.category {
+  padding: 20px 10px;
+  text-align: center;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: white;
+  cursor: pointer;
+}
+
+.category:hover,
+.category.active {
+  background: #eff4ff;
+  border-color: var(--blue);
+}
+
+.category .icon {
+  font-size: 28px;
+}
+
+.category h3 {
+  font-size: 15px;
+  margin: 8px 0 3px;
+}
+
+.category p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.jobs-section {
+  background: var(--light);
+}
+
+.notice {
+  padding: 17px;
+  margin-bottom: 25px;
+  border: 1px solid #fedf89;
+  border-radius: 9px;
+  background: #fffaeb;
+  color: #93370d;
+  font-size: 14px;
+}
+
+.jobs-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.jobs-top p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.job-list {
+  display: grid;
+  gap: 15px;
+}
+
+.job-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 22px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.job-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.company {
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.job-card h3 {
+  margin: 5px 0;
+  font-size: 20px;
+}
+
+.description {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 8px 0;
+}
+
+.salary {
+  color: #039855;
+  font-weight: bold;
+  margin: 7px 0;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 10px;
+}
+
+.tag {
+  background: #f2f4f7;
+  padding: 5px 9px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.job-action {
+  min-width: 150px;
+  text-align: right;
+}
+
+.job-action small {
+  display: block;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.empty {
+  padding: 25px;
+  background: white;
+  border-radius: 10px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.step {
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.step .icon {
+  font-size: 28px;
+}
+
+.step h3 {
+  margin: 10px 0;
+}
+
+.step p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.cta {
+  padding: 50px 7%;
+  background: var(--dark);
+  color: white;
+  text-align: center;
+}
+
+.cta p {
+  color: #d0d5dd;
+  margin: 12px 0 22px;
+}
+
+footer {
+  padding: 30px 7%;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+footer a {
+  color: var(--blue);
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+@media (max-width: 800px) {
+  header {
+    flex-direction: column;
+  }
+
+  nav {
+    justify-content: center;
+  }
+
+  .search {
+    flex-direction: column;
+  }
+
+  .categories {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .job-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .job-action {
+    text-align: left;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 380px) {
+  .categories {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">World<span>RemoteJobs</span> 🌍</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#categories">Categories</a>
+    <a href="#jobs">Find Jobs</a>
+    <a href="#safety">Safety</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="badge">🌍 Opportunities Without Borders</div>
+
+  <h1>Find Your Next <span>Remote Job</span> From Anywhere</h1>
+
+  <p>
+    Explore remote careers, freelance projects and work-from-home
+    opportunities across different industries.
+  </p>
+
+  <form class="search" id="searchForm">
+    <input
+      id="searchInput"
+      type="search"
+      placeholder="Search job titles or skills..."
+      aria-label="Search jobs">
+
+    <select id="locationFilter" aria-label="Filter by location">
+      <option value="">All locations</option>
+      <option value="worldwide">Worldwide</option>
+      <option value="africa">Africa</option>
+      <option value="zimbabwe">Zimbabwe</option>
+    </select>
+
+    <button type="submit">Search Jobs</button>
+  </form>
+</section>
+
+<section class="stats">
+  <div>
+    <strong>Worldwide</strong>
+    <span>Explore global opportunities</span>
+  </div>
+  <div>
+    <strong>8 Categories</strong>
+    <span>Different career paths</span>
+  </div>
+  <div>
+    <strong>Free Access</strong>
+    <span>Browse without paying us</span>
+  </div>
+</section>
+
+<section class="content" id="categories">
+  <div class="heading">
+    <h2>Explore Job Categories</h2>
+    <p>Select a category to find matching listings.</p>
+  </div>
+
+  <div class="categories">
+    <button class="category" data-category="data entry" type="button">
+      <div class="icon">📊</div>
+      <h3>Data Entry</h3>
+      <p>Records and spreadsheets</p>
+    </button>
+
+    <button class="category" data-category="virtual assistant" type="button">
+      <div class="icon">💻</div>
+      <h3>Virtual Assistant</h3>
+      <p>Remote admin support</p>
+    </button>
+
+    <button class="category" data-category="software engineering" type="button">
+      <div class="icon">👨‍💻</div>
+      <h3>Software Engineering</h3>
+      <p>Websites and apps</p>
+    </button>
+
+    <button class="category" data-category="web research" type="button">
+      <div class="icon">🔎</div>
+      <h3>Web Research</h3>
+      <p>Research and lead generation</p>
+    </button>
+
+    <button class="category" data-category="customer support" type="button">
+      <div class="icon">🎧</div>
+      <h3>Customer Support</h3>
+      <p>Help customers online</p>
+    </button>
+
+    <button class="category" data-category="writing" type="button">
+      <div class="icon">✍️</div>
+      <h3>Writing</h3>
+      <p>Content and copywriting</p>
+    </button>
+
+    <button class="category" data-category="design" type="button">
+      <div class="icon">🎨</div>
+      <h3>Graphic Design</h3>
+      <p>Creative digital work</p>
+    </button>
+
+    <button class="category" data-category="freelance" type="button">
+      <div class="icon">🚀</div>
+      <h3>Freelance Projects</h3>
+      <p>Independent work</p>
+    </button>
+  </div>
+</section>
+
+<section class="content jobs-section" id="jobs">
+  <div class="heading">
+    <h2>Remote Job Listings</h2>
+    <p>Search and filter the demonstration listings below.</p>
+  </div>
+
+  <div class="notice">
+    <strong>Important:</strong> These are demonstration listings, not confirmed vacancies.
+    Add real jobs, verify the employers and use official application links before
+    promoting this website. Check whether each employer accepts applicants from your country.
+  </div>
+
+  <div class="jobs-top">
+    <div>
+      <h3>Explore Opportunities</h3>
+      <p id="resultsCount" aria-live="polite">Loading listings...</p>
+    </div>
+    <button id="clearFilters" type="button">Clear Filters</button>
+  </div>
+
+  <div class="job-list" id="jobList"></div>
+</section>
+
+<section class="content">
+  <div class="heading">
+    <h2>How It Works</h2>
+    <p>Three steps towards your next opportunity.</p>
+  </div>
+
+  <div class="steps">
+    <article class="step">
+      <div class="icon">🔍</div>
+      <h3>1. Find a Job</h3>
+      <p>Search by skill, category or location.</p>
+    </article>
+
+    <article class="step">
+      <div class="icon">📝</div>
+      <h3>2. Prepare to Apply</h3>
+      <p>Prepare your CV, portfolio and relevant skills.</p>
+    </article>
+
+    <article class="step">
+      <div class="icon">💼</div>
+      <h3>3. Apply Safely</h3>
+      <p>Use the employer's official application process.</p>
+    </article>
+  </div>
+</section>
+
+<section class="content" id="safety">
+  <div class="heading">
+    <h2>Stay Safe While Job Hunting</h2>
+    <p>Protect yourself when searching for online work.</p>
+  </div>
+
+  <div class="notice">
+    <strong>Never pay to receive a job.</strong>
+    Avoid offers that request registration fees, passwords, banking PINs,
+    or money to unlock a salary. Verify employers before sharing personal information.
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Your Skills Can Open Global Doors 🌍</h2>
+  <p>Keep learning, build your portfolio and apply for suitable opportunities.</p>
+  <a class="apply" href="#jobs">Explore Jobs</a>
+</section>
+
+</main>
+
+<footer>
+  <p><strong>WorldRemoteJobs</strong> — Connecting people with remote opportunities.</p>
+  <p style="margin:12px 0">
+    <a href="#home">Home</a>
+    <a href="#jobs">Jobs</a>
+    <a href="#safety">Job Safety</a>
+  </p>
+  <p>Listings should be checked before applying.</p>
+  <p>© <span id="year"></span> WorldRemoteJobs. All rights reserved.</p>
+</footer>
+
+<script>
+"use strict";
+
+const jobs = [
+  {
+    title: "Data Entry Specialist",
+    company: "Demonstration Listing",
+    category: "data entry",
+    location: "Worldwide",
+    region: "worldwide",
+    salary: "Not specified",
+    type: "Remote",
+    description: "Example role involving spreadsheet updates and accurate record management.",
+    verified: false,
+    url: ""
+  },
+  {
+    title: "Virtual Assistant",
+    company: "Demonstration Listing",
+    category: "virtual assistant",
+    location: "Africa",
+    region: "africa",
+    salary: "Not specified",
+    type: "Part-time",
+    description: "Example role involving scheduling, email management and administrative support.",
+    verified: false,
+    url: ""
+  },
+  {
+    title: "Junior Front-End Developer",
+    company: "Demonstration Listing",
+    category: "software engineering",
+    location: "Worldwide",
+    region: "worldwide",
+    salary: "Not specified",
+    type: "Remote",
+    description: "Example role involving HTML, CSS, JavaScript and website development.",
+    verified: false,
+    url: ""
+  },
+  {
+    title: "Web Research Assistant",
+    company: "Demonstration Listing",
+    category: "web research",
+    location: "Worldwide",
+    region: "worldwide",
+    salary: "Not specified",
+    type: "Freelance",
+    description: "Example role involving online research and lead generation.",
+    verified: false,
+    url: ""
+  },
+  {
+    title: "Remote Customer Support",
+    company: "Demonstration Listing",
+    category: "customer support",
+    location: "Check country eligibility",
+    region: "worldwide",
+    salary: "Not specified",
+    type: "Remote",
+    description: "Example role involving customer questions and support tickets.",
+    verified: false,
+    url: ""
+  },
+  {
+    title: "Content Writer",
+    company: "Demonstration Listing",
+    category: "writing",
+    location: "Worldwide",
+    region: "worldwide",
+    salary: "Not specified",
+    type: "Freelance",
+    description: "Example role involving online articles and content editing.",
+    verified: false,
+    url: ""
+  },
+  {
+    title: "Graphic Designer",
+    company: "Demonstration Listing",
+    category: "design",
+    location: "Worldwide",
+    region: "worldwide",
+    salary: "Not specified",
+    type: "Freelance",
+    description: "Example role involving graphics and visual content.",
+    verified: false,
+    url: ""
+  },
+  {
+    title: "Freelance Online Researcher",
+    company: "Demonstration Listing",
+    category: "freelance",
+    location: "Zimbabwe — check eligibility",
+    region: "zimbabwe",
+    salary: "Not specified",
+    type: "Contract",
+    description: "Example role involving collecting and organising online information.",
+    verified: false,
+    url: ""
+  }
+];
+
+const jobList = document.getElementById("jobList");
+const searchInput = document.getElementById("searchInput");
+const locationFilter = document.getElementById("locationFilter");
+const resultsCount = document.getElementById("resultsCount");
+const categoryButtons = document.querySelectorAll(".category");
+
+let activeCategory = "";
+
+function renderJobs() {
+  const query = searchInput.value.trim().toLowerCase();
+  const location = locationFilter.value;
+
+  const filteredJobs = jobs.filter(function(job) {
+    const searchable = [
+      job.title,
+      job.company,
+      job.category,
+      job.location,
+      job.description
+    ].join(" ").toLowerCase();
+
+    const matchesSearch = searchable.includes(query);
+    const matchesCategory =
+      !activeCategory || job.category === activeCategory;
+    const matchesLocation =
+      !location || job.region === location || job.region === "worldwide";
+
+    return matchesSearch && matchesCategory && matchesLocation;
+  });
+
+  resultsCount.textContent =
+    filteredJobs.length + " demonstration listing(s) displayed";
+
+  jobList.replaceChildren();
+
+  if (filteredJobs.length === 0) {
+    const message = document.createElement("p");
+    message.className = "empty";
+    message.textContent =
+      "No matching listings. Try a different keyword, location or category.";
+    jobList.appendChild(message);
+    return;
+  }
+
+  filteredJobs.forEach(function(job) {
+    const card = document.createElement("article");
+    card.className = "job-card";
+
+    const info = document.createElement("div");
+    info.className = "job-info";
+
+    const company = document.createElement("div");
+    company.className = "company";
+    company.textContent = job.company;
+
+    const title = document.createElement("h3");
+    title.textContent = job.title;
+
+    const description = document.createElement("p");
+    description.className = "description";
+    description.textContent = job.description;
+
+    const salary = document.createElement("p");
+    salary.className = "salary";
+    salary.textContent = "Pay: " + job.salary;
+
+    const tags = document.createElement("div");
+    tags.className = "tags";
+
+    [job.location, job.type, job.category].forEach(function(value) {
+      const tag = document.createElement("span");
+      tag.className = "tag";
+      tag.textContent = value;
+      tags.appendChild(tag);
+    });
+
+    info.append(company, title, description, salary, tags);
+
+    const action = document.createElement("div");
+    action.className = "job-action";
+
+    const status = document.createElement("small");
+    status.textContent = job.verified
+      ? "Employer checked"
+      : "Demo listing — not verified";
+
+    const link = document.createElement("a");
+    link.className = "apply";
+
+    if (job.verified && job.url) {
+      link.href = job.url;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = "Apply Now";
+    } else {
+      link.href = "#safety";
+      link.textContent = "View Safety Tips";
+    }
+
+    action.append(status, link);
+    card.append(info, action);
+    jobList.appendChild(card);
+  });
+}
+
+document.getElementById("searchForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  renderJobs();
+  document.getElementById("jobs").scrollIntoView({ behavior: "smooth" });
+});
+
+searchInput.addEventListener("input", renderJobs);
+locationFilter.addEventListener("change", renderJobs);
+
+categoryButtons.forEach(function(button) {
+  button.addEventListener("click", function() {
+    const selected = button.dataset.category;
+    activeCategory = activeCategory === selected ? "" : selected;
+
+    categoryButtons.forEach(function(item) {
+      item.classList.toggle("active", item.dataset.category === activeCategory);
+      item.setAttribute("aria-pressed", String(item.dataset.category === activeCategory));
+    });
+
+    renderJobs();
+    document.getElementById("jobs").scrollIntoView({ behavior: "smooth" });
+  });
+
+  button.setAttribute("aria-pressed", "false");
+});
+
+document.getElementById("clearFilters").addEventListener("click", function() {
+  searchInput.value = "";
+  locationFilter.value = "";
+  activeCategory = "";
+
+  categoryButtons.forEach(function(button) {
+    button.classList.remove("active");
+    button.setAttribute("aria-pressed", "false");
+  });
+
+  renderJobs();
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+renderJobs();
+</script>
+
+</body>
+</html>
